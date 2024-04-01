@@ -24,6 +24,8 @@ INITSCRIPT_NAME:${PN} = "aesdchar-start-stop.sh"
 # during the bitbake process.
 #FILES:${PN} += "/etc/init.d/*"
 
+do_compile[noexec] = "1"
+
 do_install () {
     install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${S}/aesdchar-start-stop.sh ${D}${sysconfdir}/init.d
