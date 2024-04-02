@@ -1,0 +1,31 @@
+#!/bin/sh
+# Adapted from misc-module
+module1="hello"
+device1="hello"
+module2="faulty"
+device2="faulty"
+mode="664"
+
+case $1 in
+    start)
+        echo "Loading hello and faulty module"
+        # invoke insmod with all arguments we got
+        # and use a pathname, as insmod doesn't look in . by default
+        modprobe ${module1} || exit 1
+
+        # invoke insmod with all arguments we got
+        # and use a pathname, as insmod doesn't look in . by default
+        insmod "/lib/modules/5.15.124-yocto-standard/${module2}.ko" || exit 1
+        ;;
+    stop)
+        echo "Unloading hello and fault module"
+        # invoke rmmod with all arguments we got
+        rmmod $module1 $* || exit 1
+        rmmod $module2 $* || exit 1
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+    exit 1
+esac
+
+exit 0

@@ -1,0 +1,26 @@
+From 33e6e1891afe23b562a576bc8014f3ff4bd10ee2 Mon Sep 17 00:00:00 2001
+From: Ryan Hamor <HamorRyanB@JohnDeere.com>
+Date: Tue, 2 Apr 2024 09:13:40 -0500
+Subject: [PATCH] modifying to make just the module for this recipe
+
+---
+ Makefile | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 7b08c49..ef5d766 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,8 +1,5 @@
+ 
+-SUBDIRS =  misc-progs misc-modules \
+-           skull scull scullc scullp lddbus sculld scullv shortprint simple tty \
+-	   pci usb\
+-	   sbull snull short
++SUBDIRS =  misc-modules
+ 
+ all: subdirs
+ 
+-- 
+2.43.2
+
